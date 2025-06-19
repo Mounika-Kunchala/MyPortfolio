@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mounika's Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <img src="https://via.placeholder.com/120" alt="Profile" class="profile-pic" />
+    <h1>Hi, I'm Mounika</h1>
+    <p class="typing-text"></p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I’m learning to build websites using HTML, CSS, and JavaScript. I love designing creative and simple user experiences!</p>
+  </section>
+
+  <section id="skills">
+    <h2>My Skills</h2>
+    <div class="skill">
+      <label>HTML</label>
+      <div class="bar html"></div>
+    </div>
+    <div class="skill">
+      <label>CSS</label>
+      <div class="bar css"></div>
+    </div>
+    <div class="skill">
+      <label>JavaScript</label>
+      <div class="bar js"></div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>My Projects</h2>
+    <ul>
+      <li>✅ Simple Calculator</li>
+      <li>📝 To-Do List App</li>
+      <li>🌦️ Weather App</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:mounika@example.com">mounika@example.com</a></p>
+  </section>
+
+  <footer>
+    <p>© 2025 Mounika Kunchala. Built with 💖.</p>
+  </footer>
+
+  <script>
+    const typingText = document.querySelector(".typing-text");
+    const words = ["Web Developer", "Learner", "Designer"];
+    let i = 0, j = 0, current = "", isDeleting = false;
+
+    function typeEffect() {
+      if (i < words.length) {
+        if (!isDeleting && j <= words[i].length) {
+          current = words[i].slice(0, j++);
+        } else if (isDeleting && j >= 0) {
+          current = words[i].slice(0, j--);
+        }
+
+        typingText.innerText = current;
+
+        if (j === words[i].length) isDeleting = true;
+        if (j === 0 && isDeleting) {
+          isDeleting = false;
+          i = (i + 1) % words.length;
+        }
+
+        setTimeout(typeEffect, isDeleting ? 80 : 150);
+      }
+    }
+
+    typeEffect();
+  </script>
+</body>
+</html>
